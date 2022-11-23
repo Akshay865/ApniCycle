@@ -9,16 +9,76 @@ import {
   Image,TextInput,ScrollView,KeyboardAvoidingView
 } from 'react-native';
 import Button from "../../Components/Button.js";
-
+import Loader from "../../Components/Loader.js";
 
 class Login extends Component{
   constructor(props){
     super(props);
+    this.state={
+      screen :false,
+      username:'',
+      password:'',
+      isLoading:false,
+      focus:false,
+    }
   //  this.state={screen:true}
   }
   
-  render(){
 
+  login= async()=>{
+    this.setState({isLoading:true})
+     console.log("aaaaaaaaaaaaa")
+    await fetch('http://172.17.49.230:8080/login', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        username: this.state.username,
+        password: this.state.password
+      })
+    }).then((response)=>{
+      console.log('qqqqqqqqqqqq',response);
+      if(response.status===200)
+      this.setState({screen:true});
+      else
+      this.setState({focus:true});
+    }
+      
+    )
+    
+
+     this.setState({isLoading:false})
+    // this.setState({screen:false});
+    // try {
+    //   const response = await fetch('http://172.17.49.230:8080/login');
+    //   const json = await response.json();
+    //   console.log(json);
+    // } catch (error) {
+    //   console.log(error);
+    // } finally {
+    //   this.setState({ screen: false });
+    // }
+
+  }
+
+  // const data= fetch('192.168.43.126:8080/login', {
+  //   method: 'POST',
+  //   headers: {
+  //     Accept: 'application/json',
+  //     'Content-Type': 'application/json'
+  //   },
+  //   body: JSON.stringify({
+  //     firstParam: 'test',
+  //     secondParam: 'test'
+  //   })
+  // })
+  render(){
+     console.log("username is", this.state.username);
+     console.log("password is", this.state.password)
+
+     if(this.state.isLoading===false)
       return(
         
         <View style={styles.container}>
@@ -35,7 +95,10 @@ class Login extends Component{
          
           style={{marginLeft:10,paddingVertical:0}} 
           placeholder="Enter Username"
-          // onChangeText={TextInputNumber=>{TextInputNumber!='' ? this.setState({isFocused:true }): this.setState({isFocused:false})}}
+          onChangeText={TextInputNumber=>{ this.setState({
+            username:TextInputNumber,
+            focus:true
+          })}}
           
           fontSize={18}
            />
@@ -44,29 +107,56 @@ class Login extends Component{
           <View style={styles.input2}> 
           <TextInput 
          
-          style={{marginLeft:10,paddingVertical:0}} 
+          style={{
+          marginLeft:10,paddingVertical:0}} 
+          
           placeholder="Password"
-          // onChangeText={TextInputNumber=>{TextInputNumber!='' ? this.setState({isFocused:true }): this.setState({isFocused:false})}}
+          onChangeText={TextInputNumber=>{ this.setState({
+            password:TextInputNumber,
+            focus:true
+          })}}
+          //  onChangeText={TextInputNumber=>{
+          //   TextInputNumber!='' ?
+          //    this.setState({isFocused:true }): 
+          //    this.setState({isFocused:false})}
+          //   }
          
           fontSize={18}
           />
+           
+          
           </View> 
+            { 
+
+           // this.state.password==="test" && this.state.username==="test" ?
+           this.state.screen===true?
+            <Text style={styles.error}>Details Matched </Text>:
+            this.state.focus===true?
+            <Text style={styles.error}>Please Enter Right Details</Text>
+            :  <Text style={styles.error}></Text>
           
+          }
           
-          
-          
-          </View>
           
         
 
+          </View>
+         
           <View style={styles.flex3}>
-          
-          <Button text={"Login"}/>
+        
+
+
+          <Button text={"Login"} onPress={this.login}/>
           </View>
           
         </View>
         
       )
+      else{
+        return (
+          <Loader />
+        )
+      }
   }
 }
 

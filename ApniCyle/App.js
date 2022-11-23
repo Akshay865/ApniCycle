@@ -7,8 +7,9 @@ import {
   Text
 } from 'react-native';
 import Home from './screens/HomeScreen/HomeScreen1.js';
-import Home2 from './screens/HomeScreen/HomeScreen3.js';
-import Login from './screens/LoginScreen/Login.js';
+//import Home3 from './screens/HomeScreen/HomeScreen3.js';
+import Temp from './routes/index.js'
+
 
 
 class App extends Component{
@@ -34,7 +35,7 @@ class App extends Component{
       else{
         return(
           <View style={{flex:1,flexDirection:'column'}}>
-            <Login/>
+            <Temp/>
           {/* <Home2/> */}
           </View>
         )
@@ -46,24 +47,4 @@ class App extends Component{
 
 
 export default App;
-import LinearGradient from 'react-native-linear-gradient';
 
-// Within your render function
-
-// Later on in your styles..
-var styles = StyleSheet.create({
-  linearGradient: {
-    flex: 1,
-    paddingLeft: 15,
-    paddingRight: 15,
-    borderRadius: 5
-  },
-  buttonText: {
-    fontSize: 18,
-    fontFamily: 'Gill Sans',
-    textAlign: 'center',
-    margin: 10,
-    color: '#ffffff',
-    backgroundColor: 'transparent',
-  },
-});

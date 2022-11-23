@@ -62,7 +62,15 @@ import {
         fontFamily:'Roboto-Medium',
         
       }
+      , error: {
+        // position: "absolute",
+        // bottom:-15,
+        marginLeft:10,
+        marginTop:5,
+        color: "red",
+        fontSize: 12,
       
+      },
       
       });
   export  {styles};

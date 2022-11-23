@@ -6,7 +6,7 @@ import {
   
   Text,
   View,
-  Image
+  Image,
 } from 'react-native';
 
 

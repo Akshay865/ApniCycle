@@ -9,15 +9,17 @@ import {
   Image,TouchableOpacity
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import Home from './HomeScreen1.js';
+import Login from '../LoginScreen/Login.js';
 
 
-class Home2 extends Component{
+class Home3 extends Component{
   constructor(props){
     super(props);
     this.state={screen:true}
   }
   onPress=()=>{
+
+    this.props.navigation.navigate('Login');
     if(this.state.screen===true)
     this.setState({
       screen:false
@@ -66,4 +68,4 @@ class Home2 extends Component{
   }
 }
 
-export default Home2;
+export default Home3;
