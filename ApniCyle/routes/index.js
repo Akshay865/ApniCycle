@@ -11,20 +11,65 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import Home3 from "../screens/HomeScreen/HomeScreen3.js";
 import Login from "../screens/LoginScreen/Login.js";
+import Tab1 from "../screens/TabBar/TabBar.js";
+import Loader from "../Components/Loader.js";
+import {setToken,getToken,clearToken} from "../config/SesssionManager";
 class Temp extends Component{
- 
+
+    constructor(props){
+    super(props);
+    this.state={val:'0',loading:true}
+  }
+
+    async componentDidMount (){
+     
+      const val=  await getToken('login');
+      this.setState({loading:false,val:val})
+    }
     
-    render(){
+      render(){
+        
+        if(this.state.loading==true)
+        return (
+          <Loader/>
+        )
         
         return(
 
-      <NavigationContainer>
+      <NavigationContainer >
+      {this.state.val!='1' ?
+       
       <Stack.Navigator initialRouteName="Home3" screenOptions={{
-    headerShown: false
-  }} >
+      headerShown: false
+    }} >
+      
+      <Stack.Group>
         <Stack.Screen  name="Home3" component={Home3}  />
         <Stack.Screen name="Login" component={Login} />
+      </Stack.Group>
+        <Stack.Group>
+        <Stack.Screen name="Tab1" component={Tab1}
+          options={{ headerShown: false }}/>
+        </Stack.Group>
+ 
       </Stack.Navigator>
+      
+      :
+     
+      <Stack.Navigator initialRouteName="Tab1" screenOptions={{
+        headerShown: false
+      }} >
+        
+        
+          <Stack.Group>
+          <Stack.Screen name="Tab1" component={Tab1}
+            options={{ headerShown: false }}/>
+          </Stack.Group>
+   
+        </Stack.Navigator>
+
+      }
+     
     </NavigationContainer>
         )
     }

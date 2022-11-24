@@ -10,6 +10,9 @@ import {
 } from 'react-native';
 import Button from "../../Components/Button.js";
 import Loader from "../../Components/Loader.js";
+import Tab1 from '../TabBar/TabBar.js';
+import {setToken,getToken,clearToken} from '../../config/SesssionManager';
+
 
 class Login extends Component{
   constructor(props){
@@ -38,10 +41,16 @@ class Login extends Component{
         username: this.state.username,
         password: this.state.password
       })
-    }).then((response)=>{
+    }).then( async(response)=>{
       console.log('qqqqqqqqqqqq',response);
       if(response.status===200)
+      {
+      await setToken('login','1');
+      const t=await getToken('login');
+      console.log("dddddddddddddddd",t)
       this.setState({screen:true});
+      this.props.navigation.navigate('Tab1');
+      }
       else
       this.setState({focus:true});
     }

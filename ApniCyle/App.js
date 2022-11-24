@@ -9,6 +9,7 @@ import {
 import Home from './screens/HomeScreen/HomeScreen1.js';
 //import Home3 from './screens/HomeScreen/HomeScreen3.js';
 import Temp from './routes/index.js'
+import {setToken,getToken} from './config/SesssionManager'
 
 
 
@@ -24,8 +25,11 @@ class App extends Component{
        }, 3000);
      //  setToken();
       // getToken();
+     
+     
    }
   render(){
+   
   if(this.state.screen===true)
       return(
         <View style={{flex:1,flexDirection:'column'}}>
