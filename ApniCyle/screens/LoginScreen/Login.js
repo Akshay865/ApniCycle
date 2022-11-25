@@ -11,6 +11,7 @@ import {
 import Button from "../../Components/Button.js";
 import Loader from "../../Components/Loader.js";
 import Tab1 from '../TabBar/TabBar.js';
+import { NavigationContainer, StackActions } from '@react-navigation/native';
 import {setToken,getToken,clearToken} from '../../config/SesssionManager';
 
 
@@ -49,7 +50,20 @@ class Login extends Component{
       const t=await getToken('login');
       console.log("dddddddddddddddd",t)
       this.setState({screen:true});
-      this.props.navigation.navigate('Tab1');
+    //   const popAction = StackActions.pop('Home3', { user: 'Wojtek' });
+
+    //  this.props.navigation.dispatch(popAction)
+
+    const popAction = StackActions.pop(1);
+
+    this.props.navigation.dispatch(popAction);
+     this.props.navigation.dispatch(
+        StackActions.replace('Tab1', {
+          user: 'jane',
+        })
+      );
+      
+     // this.props.navigation.navigate('Tab1');
       }
       else
       this.setState({focus:true});

@@ -4,7 +4,7 @@ import React, { Component } from "react";
 //import OtpLogin from '../screens/Login/OtpLogin';
 //import EnterName from '../screens/Login/EnterName.js';
 //import TabBar from '../screens/TabBar/TabBar';
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer,StackActions } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 //import {createStackNavigator, createSwitchNavigator, createAppContainer, } from 'react-navigation-stack';
 //import {getToken,setToken} from '../config/SesssionManager';

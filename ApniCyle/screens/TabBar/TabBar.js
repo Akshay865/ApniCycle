@@ -19,7 +19,12 @@ function HomeScreen({ navigation }) {
       <Text>Home screen</Text>
       <Button
         title="Go to Details"
-        onPress={() => navigation.navigate('Details')}
+        onPress={async() =>
+            {
+             navigation.navigate('Details')
+             await clearToken();
+            }
+            }
       />
     </View>
   );
