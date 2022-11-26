@@ -1,13 +1,18 @@
 import React, {StyleSheet} from 'react-native';
-import {cssvar} from '../cssvar';
+//import {cssvar} from '../cssvar';
 const styles = StyleSheet.create({  
     container: {  
-        flex:cssvar.flexsize,
-        paddingLeft:cssvar.screenpaddingleft,
-        paddingRight:cssvar.screenpaddingright,  
+     //  flex:cssvar.flexsize,
+       // paddingLeft:cssvar.screenpaddingleft,
+        //paddingRight:cssvar.screenpaddingright,  
     },  
     lift:{
         // paddingBottom:10
+    },
+    iconstyle2:{
+        width:22,
+        height:22,
+        paddingBottom:20
     },
     iconstyle:{
         width:22,
@@ -32,7 +37,7 @@ const styles = StyleSheet.create({
         //padding: '10%',
         fontSize:10
     }
-
+    
 
 })
 
