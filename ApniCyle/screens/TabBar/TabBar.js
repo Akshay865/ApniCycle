@@ -5,6 +5,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import {setToken,getToken,clearToken} from "../../config/SesssionManager";
 import Cycle  from '../TabHome/CylceModel.js';
+import Scan from '../ScanQr/ScanQr.js';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import LinearGradient from 'react-native-linear-gradient';
 import {styles} from './tabBarStyle.js';
@@ -106,10 +107,9 @@ const SettingsStack = createNativeStackNavigator();
 function SettingsStackScreen() {
   return (
     <SettingsStack.Navigator>
-      <SettingsStack.Screen name="Settings" component={SettingsScreen}
-      
+      <SettingsStack.Screen name="Scan" component={Scan}
       />
-      <SettingsStack.Screen name="Details" component={DetailsScreen} />
+      {/* <SettingsStack.Screen name="Details" component={DetailsScreen} /> */}
     </SettingsStack.Navigator>
   );
 }
@@ -162,7 +162,7 @@ export default function Tab1() {
             return <Image source={require('../../images/Home.png')} style={styles.iconstyle}/>
           //  return <Ionicons name={iconName} size={size} color={color} />;
         }
-        else if(route.name=='Settings'){
+        else if(route.name=='Scan'){
             return <Image source={require('../../images/cycleBook.png')} style={styles.iconstyle}/>
         }
 
@@ -207,7 +207,7 @@ export default function Tab1() {
         >
         <Tab.Screen name="Home" component={HomeStackScreen} />
        
-        <Tab.Screen name="Settings" component={SettingsStackScreen} />
+        <Tab.Screen name="Scan" component={Scan} />
         <Tab.Screen name="Release" component={ReleaseStackScreen} />
         <Tab.Screen name="Wallet" component={WalletStackScreen} />
       </Tab.Navigator>
