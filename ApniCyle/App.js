@@ -7,7 +7,7 @@ import {
   Text
 } from 'react-native';
 import Home from './screens/HomeScreen/HomeScreen1.js';
-//import Home3 from './screens/HomeScreen/HomeScreen3.js';
+import Home3 from './screens/HomeScreen/HomeScreen3.js';
 import Temp from './routes/index.js'
 import {setToken,getToken} from './config/SesssionManager'
 
