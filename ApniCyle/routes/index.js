@@ -64,6 +64,7 @@ class Temp extends Component{
           <Stack.Group>
           <Stack.Screen name="Tab1" component={Tab1}
             options={{ headerShown: false }}/>
+            <Stack.Screen name="Login" component={Login} />
           </Stack.Group>
    
         </Stack.Navigator>

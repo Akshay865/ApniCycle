@@ -10,25 +10,48 @@ import {
 import LinearGradient from 'react-native-linear-gradient';
 import {styles} from './CycleModelStyle.js';
 import {setToken,getToken,clearToken} from '../../config/SesssionManager.js';
+import {  StackActions } from '@react-navigation/native';
 
 class Cycle extends Component{
   constructor(props){
     super(props);
     this.state={screen:true}
   }
+  // onPress=()=>{
+
+  //   this.props.navigation.navigate('Login');
+  //   if(this.state.screen===true)
+  //   this.setState({
+  //     screen:false
+  //   });
+  //   else{
+  //       this.setState({
+  //           screen:true
+  //         }); 
+  //   }
+  // }
   onPress=()=>{
 
-    this.props.navigation.navigate('Login');
-    if(this.state.screen===true)
-    this.setState({
-      screen:false
-    });
-    else{
-        this.setState({
-            screen:true
-          }); 
+    //  this.props.navigation.navigate('Login');
+      const popAction = StackActions.pop(1);
+      this.props.navigation.dispatch(popAction);
+      this.props.navigation.dispatch(
+         StackActions.replace('Login')
+       );
+       
+      if(this.state.screen===true)
+      this.setState({
+        screen:false
+      });
+      else{
+          this.setState({
+              screen:true
+            }); 
+      }
     }
-  }
+  
+  
+
   render(){
 
       return(
@@ -36,6 +59,8 @@ class Cycle extends Component{
           <TouchableOpacity activeOpacity={.5} style={styles.logo} onPress={async()=>
             {
             await clearToken();
+            this.onPress();
+            console.log("hello");
             console.log("hello");
          
             }

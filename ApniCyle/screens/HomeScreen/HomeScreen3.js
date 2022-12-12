@@ -51,10 +51,10 @@ class Home3 extends Component{
           
            <View style={styles.login}>
            <TouchableOpacity style={styles.button1} onPress={this.onPress}>
-            { this.state.screen===true?
+            
            <Text style={{fontFamily:'Roboto-Bold',fontSize:20}}>Login</Text>
-        :    <Text style={{fontFamily:'Roboto-Bold',fontSize:20}}>Login2 </Text>
-        }
+        
+        
            </TouchableOpacity >
             <TouchableOpacity style={styles.button2}>
              <Text  style={{fontFamily:'Roboto-Bold',fontSize:20}} >Sign-up</Text>

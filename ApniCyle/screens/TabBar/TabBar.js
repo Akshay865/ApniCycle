@@ -9,95 +9,78 @@ import Scan from '../ScanQr/ScanQr.js';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import LinearGradient from 'react-native-linear-gradient';
 import {styles} from './tabBarStyle.js';
+import Wallet  from '../Wallet/Wallet.js';
+import Balance  from '../Wallet/ViewBalance.js';
+import Release  from '../Release/Release.js';
+import Add  from '../Wallet/AddBalance.js';
 function DetailsScreen() {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Details!</Text>
+    <View style={{ flex: 1, justifyContent: 'center',
+    backgroundColor:'#EBF0F3',
+    alignItems: 'center' }}>
+      <Text  style={{fontFamily:'Roboto-Medium',fontSize:15}} >You don't have Enough Balance!</Text>
     </View>
   );
 }
 
-function HomeScreen({ navigation }) {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Home screen</Text>
-      <Button
-        title="Go to Details"
-        onPress={async() =>
-            {
-             navigation.navigate('Details')
-             await clearToken();
-            }
-            }
-      />
-    </View>
-  );
-}
 
-function SettingsScreen({ navigation }) {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Settings screen</Text>
-      <Button
-        title="Go to Details"
-        onPress={() => navigation.navigate('Details')}
-      />
-    </View>
-  );
-}
 
-function Release({ navigation }) {
-    return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Settings screen</Text>
-        <Button
-          title="Go to Details"
-          onPress={() => navigation.navigate('Details')}
-        />
-      </View>
-    );
-  }
-
-  function Wallet({ navigation }) {
-    return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Settings screen</Text>
-        <Button
-          title="Go to Details"
-          onPress={() => navigation.navigate('Details')}
-        />
-      </View>
-    );
-  }
 
 
 const HomeStack = createNativeStackNavigator();
 
 function HomeStackScreen() {
   return (
-    <HomeStack.Navigator screenOptions={{headerShown: false}}>
+    <HomeStack.Navigator screenOptions={{headerShown: false}}
+    initialRouteName='Cycle'
+    >
+
+
       <HomeStack.Screen name="Cycle" component={Cycle} />
-      <HomeStack.Screen name="Details" component={DetailsScreen} />
+      {/* <HomeStack.Screen name="Details" component={DetailsScreen} /> */}
     </HomeStack.Navigator>
   );
 }
 
 function ReleaseStackScreen() {
     return (
-      <HomeStack.Navigator screenOptions={{headerShown: false}}>
-        <HomeStack.Screen name="Cycle" component={Cycle} />
-        <HomeStack.Screen name="Details" component={DetailsScreen} />
-      </HomeStack.Navigator>
+      <HomeStack.Navigator initialRouteName="Release1" screenOptions={{
+        headerShown: false
+      }} >
+        
+        <HomeStack.Group>
+          <HomeStack.Screen  name="Release1" component={Release}  />
+          <HomeStack.Screen name="Details" component={DetailsScreen} />
+        </HomeStack.Group>
+   
+        </HomeStack.Navigator>
     );
   }
 
 
   function WalletStackScreen() {
     return (
-      <HomeStack.Navigator screenOptions={{headerShown: false}}>
-        <HomeStack.Screen name="Cycle" component={Cycle} />
-        <HomeStack.Screen name="Details" component={DetailsScreen} />
-      </HomeStack.Navigator>
+      // <HomeStack.Navigator screenOptions={{headerShown: false,
+      // }}
+      // initialRouteName='Wallet3'
+      // >
+      //   <HomeStack.Screen name="Wallet3" component={Wallet} />
+      //   <HomeStack.Screen name="Details" component={DetailsScreen} />
+      // </HomeStack.Navigator>
+      <HomeStack.Navigator initialRouteName="Wallet3" screenOptions={{
+        headerShown: false
+      }} >
+        
+        <HomeStack.Group>
+          <HomeStack.Screen  name="Wallet3" component={Wallet}  />
+          <HomeStack.Screen name="Balance" component={Balance} />
+          <HomeStack.Screen name="Add" component={Add} />
+        </HomeStack.Group>
+   
+        </HomeStack.Navigator>
+       
+
+
     );
   }
   
@@ -205,7 +188,7 @@ export default function Tab1() {
     }
         
         >
-        <Tab.Screen name="Home" component={HomeStackScreen} />
+        <Tab.Screen name="Home" component={Cycle} />
        
         <Tab.Screen name="Scan" component={Scan} />
         <Tab.Screen name="Release" component={ReleaseStackScreen} />
