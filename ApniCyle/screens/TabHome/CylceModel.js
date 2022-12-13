@@ -75,7 +75,7 @@ class Cycle extends Component{
             
             <Text style={{fontFamily:'Roboto-Bold',
              marginTop:"15%",marginLeft:'7%',
-            fontSize:20}}>Bike Cyle 2 </Text>
+            fontSize:20}}>Cyle : Zeus </Text>
             
           </View>
           </View>
@@ -86,7 +86,7 @@ class Cycle extends Component{
             
             <Text style={{fontFamily:'Roboto-Bold',
              marginTop:"15%",marginLeft:'7%',
-            fontSize:20}}>Bike Cyle 2 </Text>
+            fontSize:20}}>Bike  : BMX </Text>
             
           </View>
           </View>
@@ -96,7 +96,7 @@ class Cycle extends Component{
             
             <Text style={{fontFamily:'Roboto-Bold',
              marginTop:"15%",marginLeft:'7%',
-            fontSize:20}}>Bike Cyle 2 </Text>
+            fontSize:20}}>Cyle: Montra </Text>
             
           </View>
           </View>
@@ -106,7 +106,7 @@ class Cycle extends Component{
             
             <Text style={{fontFamily:'Roboto-Bold',
              marginTop:"15%",marginLeft:'7%',
-            fontSize:20}}>Bike Cyle 2 </Text>
+            fontSize:20}}>Cyle : Cruiser </Text>
             
           </View>
           </View>

@@ -147,6 +147,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import QRCodeScanner from 'react-native-qrcode-scanner';
 import styles from './ScanQrStyle.js';
 import Loader from "../../Components/Loader.js";
+// import swal from '@sweetalert/with-react'
 class Scan extends Component {
     constructor(props) {
         super(props);
@@ -215,6 +216,7 @@ class Scan extends Component {
         {
         //this.props.navigation.navigate('Balance',{key:1})
         console.log("dddddddddddddddd")
+        alert("Cycle Booked");
         this.setState({isLoading:false});
      
        // this.props.navigation.navigate('Tab1');
@@ -278,7 +280,7 @@ class Scan extends Component {
                                
                                }
                                 }
-                            >Cousre Details</Text>
+                            >Cycle Details</Text>
                             <Image source={require('../../images/cycle.png')} style={styles.logo} />
                             {/* <Text numberOfLines={1}>RawData: {result.rawData}</Text> */}
                             

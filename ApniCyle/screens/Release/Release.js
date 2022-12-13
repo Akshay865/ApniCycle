@@ -61,8 +61,9 @@ class Release extends Component {
         {
        // this.props.navigation.navigate('Balance',{key:1})
         console.log("dddddddddddddddd")
+        alert("Cycle Released")
         this.setState({isLoading:false});
-     
+       
        // this.props.navigation.navigate('Tab1');
         }
         else if(response.status==500){
@@ -128,7 +129,7 @@ class Release extends Component {
                                
                                }
                                 }
-                            >Cousre Details</Text>
+                            >Cycle Details</Text>
                             <Image source={require('../../images/cycle.png')} style={styles.logo} />
                             {/* <Text numberOfLines={1}>RawData: {result.rawData}</Text> */}
                             
